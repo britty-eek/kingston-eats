@@ -35,7 +35,7 @@
             <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve a table</a></li>
           </ul>
         </div>
-      </div>
+      </div> 
           </nav>
           </header>
 
@@ -55,6 +55,55 @@
       <h1 class="display-5">Kingston Eats is the best website to find the top Restaurants in Kingston. Explore our pages to see more details.</h1>
       <a class="btn btn-primary mt-3" href="#featured">See featured restaurants</a>
     </section>
+
+    <!-- Bootstrap carousel -->
+<section class="container pb-5" aria-label="Featured restaurant photos">
+  <div id="featuredCarousel" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0"
+              class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/fish.jpg" class="d-block w-100" alt="Image of Steamed Fish">
+        <div class="carousel-caption">
+          <p class="h5 mb-1">Sea Breeze Grill</p>
+          <p class="mb-0">Palisadoes</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/fruit platter.jpg" class="d-block w-100" alt="Image of Fruit platter">
+        <div class="carousel-caption">
+          <p class="h5 mb-1">Island Fusion Kitchen</p>
+          <p class="mb-0">Half Way Tree</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Ackee.jpg" class="d-block w-100" alt="Describe your third photo">
+        <div class="carousel-caption">
+          <p class="h5 mb-1">Harbour Catch</p>
+          <p class="mb-0">Port Royal</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#featuredCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous photo</span>
+    </button>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#featuredCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next photo</span>
+    </button>
+  </div>
+</section>
 
      <!-- One large, centred paragraph, like the reference site's About section -->
     <section id="about" class="container text-center pb-5">
