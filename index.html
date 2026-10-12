@@ -41,7 +41,7 @@
           <!-- MAIN: the main content of the page. 
            tabindex="-1" lets it receive focus when the skip link is used. -->
   <main id="main-content" tabindex="-1">
-      <!-- Three photos side by side (stacked on phones); g-0 removes the gaps -->
+      <!-- Three photos side by side. g-0 removes the gaps -->
     <section class="photo-strip" aria-label="Food around Kingston">
       <div class="row row-cols-1 row-cols-md-3 g-0">
         <div class="col"><img src="images/photo-1.jpg" alt="placeholder"></div>
@@ -60,11 +60,37 @@
       <h2 class="section-title">About</h2>
       <p class="about-text col-lg-8 mx-auto">
         Kingston Eats is the best site if you want to find delicious restaurants around the city. 
-        From jerk stops, patty shops to seafood by the water, every place is chosen for its food and
+        From jerk stops, international cuisine to seafood by the water, every place is chosen for its food and
         its character. See what is open, learn a little about each restaurant, and
         request a table in a minute.
       </p>
     </section>
+
+     <section id="featured" class="container py-5">
+      <h2 class="section-title text-center">Our Featured restaurants</h2>
+      <p id="featured-summary" class="text-center" aria-live="polite"></p>
+
+      <div class="text-center mb-4">
+        <button class="btn btn-outline-primary filter-button active" data-filter="all">All</button>
+        <button class="btn btn-outline-primary filter-button" data-filter="Jerk">Jerk</button>
+        <button class="btn btn-outline-primary filter-button" data-filter="International">International</button>
+        <button class="btn btn-outline-primary filter-button" data-filter="Seafood">Seafood</button>
+      </div>
+
+      <!-- JavaScript builds the cards here -->
+      <div id="featured-list" class="row row-cols-1 row-cols-md-3 g-4"></div>
+    </section>
+
+    <section class="reserve text-center py-5">
+      <div class="container">
+        <h2 class="section-title">Reservations</h2>
+        <p class="col-lg-6 mx-auto">
+          Found a place you like? Send a table request with the date you would like and party size.
+        </p>
+        <a class="btn btn-primary" href="reserve.html">Reserve a table</a>
+      </div>
+    </section>
+  </main>
 
      
     </body>
