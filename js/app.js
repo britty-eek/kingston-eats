@@ -15,7 +15,16 @@ const restaurants = [
     description: "Late-night jerk and roast yam." },
   { id: 5, name: "Sea Breeze Grill", category: "Seafood", area: "Palisadoes",
     rating: 4.4, open: true, featured: false,
-    description: "Grilled lobster and steamed fish plates." }
+    description: "Grilled lobster and steamed fish plates." },
+  { id: 6, name: "Coconut Grove Bistro", category: "International", area: "Liguanea",
+    rating: 4.3, open: true, featured: false,
+    description: "Caribbean ingredients in Mediterranean and Asian dishes." },
+  { id: 7, name: "Yard Style Jerk Centre", category: "Jerk", area: "Barbican",
+    rating: 4.6, open: true, featured: false,
+    description: "Slow-smoked jerk pork with rice and peas." },
+  { id: 8, name: "Rockfort Fish Shack", category: "Seafood", area: "Rockfort",
+    rating: 4.1, open: false, featured: false,
+    description: "Steamed and fried fish with bammy and festival." }
 ];
 
 // FUNCTION 1: a condition turned into an if function
@@ -32,8 +41,11 @@ function createRestaurantCard(restaurant) {
   const badgeClass = restaurant.open ? "text-bg-success" : "text-bg-secondary";
 
   const column = document.createElement("div");
-  column.className = "col featured-item";
+  column.className = "col restaurant-item";
   column.dataset.category = restaurant.category;
+  //The line below is for search functionality, to match the user input against the restaurant's details.
+  column.dataset.search = `${restaurant.name} ${restaurant.category} ${restaurant.area}`.toLowerCase();
+
 
   column.innerHTML = `
     <article class="card h-100">
