@@ -10,17 +10,13 @@
     </head>
 
     <body>
-        <!-- For refernce, I based my project from the site, https://kingrestaurant.nyc/-->
-         <a class="visually-hidden focusable" href="#main content"> Click Here to Skip to Main Content</a>
+        <!-- For reference, I based my project from the site, https://kingrestaurant.nyc/-->
+         <a class="visually-hidden focusable" href="#main content"> Skip to Main Content</a>
          <!-- Kingston Eats brand with the menu underneath, similar to the reference-->
           <header class="site-header text-center py-4">
             <p class="brand mb-2"> <a href="index.html"> Kingston Eats</a></p>
           <nav class="navbar navbar-expand-lg navbar-dark bg-ink" aria-label="Primary">
-      <!-- container keeps the content centred with side padding -->
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Kingston Eats</a>
-
-            <!-- this section is for the hamburger button (only visible on small screens).
+              <!-- this section is for the hamburger button (only visible on small screens).
              Bootstrap's JavaScript reads data-bs-toggle and data-bs-target
              and opens/closes the element with id="mainNav"-->
           <button class="navbar-toggler" type="button"
@@ -45,19 +41,31 @@
           <!-- MAIN: the main content of the page. 
            tabindex="-1" lets it receive focus when the skip link is used. -->
   <main id="main-content" tabindex="-1">
-
-      <section class="hero py-5">
-      <div class="container py-lg-4">
-        <!-- h1: the main heading. -->
-        <h1 class="display-4 fw-bold">Find the best spots for restaurants around Kingston!</h1>
-        <!-- col-lg-7 limits the text width on large screens so lines stay readable -->
-        <p class="lead col-lg-7">
-          The best Jerk stops, patty shops and seafood spots across Kingston. See our restaurants
-          and find your next meal.
-        </p>
-        <!-- A link styled as a button. #featured jumps down to the section below. -->
-        <a class="btn btn-primary btn-lg" href="#featured">See featured restaurants</a>
+      <!-- Three photos side by side (stacked on phones); g-0 removes the gaps -->
+    <section class="photo-strip" aria-label="Food around Kingston">
+      <div class="row row-cols-1 row-cols-md-3 g-0">
+        <div class="col"><img src="images/photo-1.jpg" alt="placeholder"></div>
+        <div class="col"><img src="images/photo-2.jpg" alt="placeholder"></div>
+        <div class="col"><img src="images/photo-3.jpg" alt="placeholder"></div>
       </div>
     </section>
+
+    <section class="container text-center py-5">
+      <h1 class="display-5">Kingston Eats is the best website to find the top Restaurants in Kingston. Explore our pages to see more details.</h1>
+      <a class="btn btn-primary mt-3" href="#featured">See featured restaurants</a>
+    </section>
+
+     <!-- One large, centred paragraph, like the reference site's About section -->
+    <section id="about" class="container text-center pb-5">
+      <h2 class="section-title">About</h2>
+      <p class="about-text col-lg-8 mx-auto">
+        Kingston Eats is the best site if you want to find delicious restaurants around the city. 
+        From jerk stops, patty shops to seafood by the water, every place is chosen for its food and
+        its character. See what is open, learn a little about each restaurant, and
+        request a table in a minute.
+      </p>
+    </section>
+
+     
     </body>
 </html>
