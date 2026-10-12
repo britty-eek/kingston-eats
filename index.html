@@ -15,7 +15,49 @@
          <!-- Kingston Eats brand with the menu underneath, similar to the reference-->
           <header class="site-header text-center py-4">
             <p class="brand mb-2"> <a href="index.html"> Kingston Eats</a></p>
-            <nav class="navbar navbar expand "
+          <nav class="navbar navbar-expand-lg navbar-dark bg-ink" aria-label="Primary">
+      <!-- container keeps the content centred with side padding -->
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Kingston Eats</a>
+
+            <!-- this section is for the hamburger button (only visible on small screens).
+             Bootstrap's JavaScript reads data-bs-toggle and data-bs-target
+             and opens/closes the element with id="mainNav"-->
+          <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <!-- ul = unordered list of links. ms-auto pushes the links to the right. -->
+          <ul class="navbar-nav ms-auto">
+            <!-- aria-current="page" marks the page you are on. -->
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
+            <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve a table</a></li>
+          </ul>
+        </div>
+      </div>
+          </nav>
           </header>
+
+          <!-- MAIN: the main content of the page. 
+           tabindex="-1" lets it receive focus when the skip link is used. -->
+  <main id="main-content" tabindex="-1">
+
+      <section class="hero py-5">
+      <div class="container py-lg-4">
+        <!-- h1: the main heading. -->
+        <h1 class="display-4 fw-bold">Find the best spots for restaurants around Kingston!</h1>
+        <!-- col-lg-7 limits the text width on large screens so lines stay readable -->
+        <p class="lead col-lg-7">
+          The best Jerk stops, patty shops and seafood spots across Kingston. See our restaurants
+          and find your next meal.
+        </p>
+        <!-- A link styled as a button. #featured jumps down to the section below. -->
+        <a class="btn btn-primary btn-lg" href="#featured">See featured restaurants</a>
+      </div>
+    </section>
     </body>
 </html>
