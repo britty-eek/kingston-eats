@@ -44,3 +44,94 @@ h1, h2, h3, .brand {
   --bs-navbar-hover-color: var(--ink);
   --bs-navbar-active-color: var(--ink);
 }
+.navbar .nav-link {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--gold);
+}
+
+/* Photo strip: equal crops so mismatched photos still line up */
+.photo-strip img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--surface);
+}
+/* Small spaced-out section labels, like ABOUT and RESERVATIONS on the reference */
+.section-title {
+  margin-bottom: 1.5rem;
+  font-family: "Times New Roman", Georgia, Garamond;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.about-text {
+  font-family: Georgia, "Times New Roman", Garamond;
+  font-size: 1.35rem;
+  line-height: 1.7;
+}
+.reserve {
+  background-color: var(--surface);
+}
+
+/* Cards: flat with thin borders, makes it look more aesthetic*/
+.card {
+  border-color: var(--line);
+  border-radius: 0;
+  background-color: var(--paper);
+}
+
+.card-title {
+  font-family: Georgia, "Times New Roman", Garamond;
+}
+
+/* Buttons:green square corners, small spaced out text */
+.btn {
+  border-radius: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--leaf);
+  --bs-btn-border-color: var(--leaf);
+  --bs-btn-hover-bg: var(--leaf-hover);
+  --bs-btn-hover-border-color: var(--leaf-hover);
+  --bs-btn-active-bg: var(--leaf-hover);
+  --bs-btn-active-border-color: var(--leaf-hover);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--leaf);
+  --bs-btn-border-color: var(--leaf);
+  --bs-btn-hover-bg: var(--leaf);
+  --bs-btn-hover-border-color: var(--leaf);
+  --bs-btn-active-bg: var(--leaf);
+  --bs-btn-active-border-color: var(--leaf);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: var(--muted);
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+main:focus {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
