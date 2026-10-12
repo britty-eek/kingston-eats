@@ -39,6 +39,15 @@ h1, h2, h3, .brand {
   text-decoration: none;
 }
 
+.brand img {
+  display: block;
+  height: 5rem;
+  width: auto;
+  margin-inline: auto;
+  border-radius: 50%;
+  clip-path: circle(46%);
+}
+
 .navbar {
   --bs-navbar-color: var(--muted);
   --bs-navbar-hover-color: var(--ink);
