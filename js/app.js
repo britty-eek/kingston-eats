@@ -52,3 +52,69 @@ function createRestaurantCard(restaurant) {
 
   return column;
 }
+// FUNCTION 3: shows or hides cards by category and returns how many are showing
+function filterRestaurants(category, items) {
+  let shown = 0;
+
+  for (const item of items) {
+    if (category === "all" || item.dataset.category === category) {
+      item.classList.remove("d-none");
+      shown++;
+    } else {
+      item.classList.add("d-none");
+    }
+  }
+
+  return shown;
+}
+// DOM SELECTION: find the elements on the page
+const featuredList = document.querySelector("#featured-list");
+const featuredSummary = document.querySelector("#featured-summary");
+
+// RENDER: loop through the array and add a card for each featured restaurant
+if (featuredList) {
+  for (const restaurant of restaurants) {
+    if (restaurant.featured) {
+      featuredList.appendChild(createRestaurantCard(restaurant));
+    }
+  }
+}
+// Select the cards after they have been created
+const featuredItems = document.querySelectorAll(".featured-item");
+
+if (featuredSummary) {
+  featuredSummary.textContent = `${featuredItems.length} featured restaurants.`;
+}
+
+// EVENTS: category filter buttons
+const filterButtons = document.querySelectorAll(".filter-button");
+for (const button of filterButtons) {
+  button.addEventListener("click", function () {
+    const shown = filterRestaurants(button.dataset.filter, featuredItems);
+
+    for (const other of filterButtons) {
+      other.classList.remove("active");
+    }
+    button.classList.add("active");
+
+    featuredSummary.textContent = `${shown} featured restaurants shown.`;
+  });
+}
+// BOOTSTRAP MODAL: fill it with the clicked restaurant's data
+const detailButtons = document.querySelectorAll(".view-restaurant");
+
+for (const button of detailButtons) {
+  button.addEventListener("click", function () {
+    const id = Number(button.dataset.restaurantId);
+    const restaurant = restaurants.find(function (r) {
+      return r.id === id;
+    });
+
+    document.querySelector("#restaurantModalLabel").textContent = restaurant.name;
+    document.querySelector("#modal-description").textContent = restaurant.description;
+    document.querySelector("#modal-area").textContent = `Area: ${restaurant.area}`;
+    document.querySelector("#modal-rating").textContent = `Rating: ${restaurant.rating} out of 5`;
+    document.querySelector("#modal-status").textContent = getStatusMessage(restaurant.open);
+    document.querySelector("#reserve-link").href = `reserve.html?restaurant=${restaurant.id}`;
+  });
+}
