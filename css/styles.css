@@ -1,0 +1,12 @@
+/* Using a colour scheme that utilizes the Jamaican colours
+Colours: cream, charcoal and green, with a thin gold accent */
+:root {
+  --paper: #faf6ee;
+  --surface: #f0e9dc;
+  --ink: #1f1b17;
+  --muted: #5f574e;
+  --line: #d9cfbf;
+  --leaf: #3d5a47;
+  --leaf-hover: #2c4234;
+  --gold: #b8923a;
+}
