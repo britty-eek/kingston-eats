@@ -39,15 +39,6 @@ h1, h2, h3, .brand {
   text-decoration: none;
 }
 
-.brand img {
-  display: block;
-  height: 5rem;
-  width: auto;
-  margin-inline: auto;
-  border-radius: 50%;
-  clip-path: circle(46%);
-}
-
 .navbar {
   --bs-navbar-color: var(--muted);
   --bs-navbar-hover-color: var(--ink);
@@ -143,4 +134,14 @@ button:focus-visible,
 main:focus {
   outline: 3px solid var(--gold);
   outline-offset: 3px;
+}
+
+/*Logo css*/
+.site-logo {
+  display: block;
+  height: 4.5rem;
+  width: auto;
+  margin-inline: auto;
+  border-radius: 50%;
+  clip-path: circle(46%);
 }
