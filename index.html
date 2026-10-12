@@ -14,33 +14,27 @@
         <!-- For reference, I based my project from the site, https://kingrestaurant.nyc/-->
          <a class="visually-hidden focusable" href="#main content"> Skip to Main Content</a>
          <!-- Kingston Eats brand with the menu underneath, similar to the reference-->
-          <header class="site-header text-center py-4">
-         <a class="brand-link" href="index.html">
-         <img class="site-logo" src="images/KingsEats.jpg" alt="Kingston Eats logo">
-         <span class="brand">Kingston Eats</span>
-        </a>
-         <nav class="navbar navbar-expand-lg justify-content-center p-0" aria-label="Primary">
-              <!-- this section is for the hamburger button (only visible on small screens).
-             Bootstrap's JavaScript reads data-bs-toggle and data-bs-target
-             and opens/closes the element with id="mainNav"-->
-          <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse" data-bs-target="#mainNav"
-              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+       <header class="site-header text-center py-4">
+  <a class="brand-link" href="index.html">
+    <img class="site-logo" src="images/KingsEats.jpg" alt="Kingston Eats logo">
+    <span class="brand">Kingston Eats</span>
+  </a>
 
-        <div class="collapse navbar-collapse" id="mainNav">
-          <!-- ul = unordered list of links. ms-auto pushes the links to the right. -->
-          <ul class="navbar-nav ms-auto">
-            <!-- aria-current="page" marks the page you are on. -->
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
-            <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve a table</a></li>
-          </ul>
-        </div>
-      </div> 
-          </nav>
-          </header>
+  <nav class="navbar navbar-expand-lg justify-content-center p-0" aria-label="Primary">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
+        <li class="nav-item"><a class="nav-link" href="reserve.html">Reserve a table</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
           <!-- MAIN: the main content of the page. 
            tabindex="-1" lets it receive focus when the skip link is used. -->
