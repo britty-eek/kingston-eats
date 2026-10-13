@@ -59,11 +59,12 @@ function createRestaurantCard(restaurant) {
   const column = document.createElement("div");
   column.className = "col restaurant-item";
   column.dataset.category = restaurant.category;
-  //Search Functionality
   column.dataset.search = `${restaurant.name} ${restaurant.category} ${restaurant.area}`.toLowerCase();
 
   column.innerHTML = `
     <article class="card h-100">
+      <img class="card-img-top restaurant-photo" src="${restaurant.image}"
+           alt="${restaurant.imageAlt}" loading="lazy">
       <div class="card-body d-flex flex-column">
         <h3 class="h5 card-title">${restaurant.name}</h3>
         <p class="mb-1">${restaurant.category} &middot; ${restaurant.area}</p>
