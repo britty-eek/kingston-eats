@@ -81,6 +81,36 @@ function createRestaurantCard(restaurant) {
   return column;
 }
 
+function createFeaturedRow(restaurant, position) {
+  const status = getStatusMessage(restaurant.open);
+  const badgeClass = restaurant.open ? "text-bg-success" : "text-bg-secondary";
+  const imageOrder = position % 2 === 1 ? "order-lg-2" : "";
+
+  const row = document.createElement("article");
+  row.className = "featured-row restaurant-item row g-0";
+  row.dataset.category = restaurant.category;
+  row.dataset.search = `${restaurant.name} ${restaurant.category} ${restaurant.area}`.toLowerCase();
+
+  row.innerHTML = `
+    <div class="col-lg-6 featured-photo-wrap ${imageOrder}">
+      <img class="featured-photo" src="${restaurant.image}" alt="${restaurant.imageAlt}" loading="lazy">
+      <a class="btn btn-primary featured-reserve" href="reserve.html?restaurant=${restaurant.id}">Reserve a table</a>
+    </div>
+    <div class="col-lg-6 featured-text">
+      <h3 class="featured-name">${restaurant.name}</h3>
+      <p class="mb-2">${restaurant.category} &middot; ${restaurant.area}
+        <span class="badge ${badgeClass} ms-2">${status}</span></p>
+      <p class="featured-description">${restaurant.description}</p>
+      <button class="btn btn-outline-primary view-restaurant"
+              data-restaurant-id="${restaurant.id}"
+              data-bs-toggle="modal" data-bs-target="#restaurantModal">
+        View details
+      </button>
+    </div>`;
+
+  return row;
+}
+
 // DOM SELECTION 
 const featuredList = document.querySelector("#featured-list");
 const restaurantList = document.querySelector("#restaurant-list");
@@ -89,9 +119,11 @@ const noResults = document.querySelector("#no-results");
 
 // RENDER: home page shows only featured restaurants
 if (featuredList) {
+  let position = 0;
   for (const restaurant of restaurants) {
     if (restaurant.featured) {
-      featuredList.appendChild(createRestaurantCard(restaurant));
+      featuredList.appendChild(createFeaturedRow(restaurant, position));
+      position++;
     }
   }
 }

@@ -294,3 +294,55 @@ main:focus {
   object-fit: cover;
   border-radius: 0;
 }
+/* Featured cards css */
+.featured-row {
+  margin-bottom: 2rem;
+  border: 1px solid var(--line);
+  background-color: var(--paper);
+}
+
+.featured-photo-wrap {
+  position: relative;
+}
+
+.featured-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.featured-reserve {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.featured-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.featured-name {
+  margin-bottom: 1rem;
+  color: var(--leaf-hover);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.1;
+}
+
+.featured-description {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+@media (min-width: 62rem) {
+  .featured-text { padding: 3rem 4rem; }
+  .featured-photo { min-height: 26rem; }
+}
