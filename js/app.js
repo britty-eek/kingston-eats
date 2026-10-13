@@ -27,7 +27,7 @@ const restaurants = [
     description: "Steamed and fried fish with bammy and festival." }
 ];
 
-// FUNCTION 1: a condition turned into an if function
+// FUNCTION 1: a decision turned into a reusable function
 function getStatusMessage(isOpen) {
   if (isOpen) {
     return "Open now";
@@ -43,9 +43,8 @@ function createRestaurantCard(restaurant) {
   const column = document.createElement("div");
   column.className = "col restaurant-item";
   column.dataset.category = restaurant.category;
-  //The line below is for search functionality, to match the user input against the restaurant's details.
+  //Search Functionality
   column.dataset.search = `${restaurant.name} ${restaurant.category} ${restaurant.area}`.toLowerCase();
-
 
   column.innerHTML = `
     <article class="card h-100">
@@ -60,30 +59,18 @@ function createRestaurantCard(restaurant) {
           View details
         </button>
       </div>
-         </article>`;
+    </article>`;
 
   return column;
 }
-// FUNCTION 3: shows or hides cards by category and returns how many are showing
-function filterRestaurants(category, items) {
-  let shown = 0;
 
-  for (const item of items) {
-    if (category === "all" || item.dataset.category === category) {
-      item.classList.remove("d-none");
-      shown++;
-    } else {
-      item.classList.add("d-none");
-    }
-  }
-
-  return shown;
-}
-// DOM SELECTION: find the elements on the page
+// DOM SELECTION 
 const featuredList = document.querySelector("#featured-list");
-const featuredSummary = document.querySelector("#featured-summary");
+const restaurantList = document.querySelector("#restaurant-list");
+const summary = document.querySelector("#featured-summary") || document.querySelector("#restaurant-summary");
+const noResults = document.querySelector("#no-results");
 
-// RENDER: loop through the array and add a card for each featured restaurant
+// RENDER: home page shows only featured restaurants
 if (featuredList) {
   for (const restaurant of restaurants) {
     if (restaurant.featured) {
@@ -91,28 +78,65 @@ if (featuredList) {
     }
   }
 }
-// Select the cards after they have been created
-const featuredItems = document.querySelectorAll(".featured-item");
 
-if (featuredSummary) {
-  featuredSummary.textContent = `${featuredItems.length} featured restaurants.`;
+// RENDER: restaurants page shows all of them
+if (restaurantList) {
+  for (const restaurant of restaurants) {
+    restaurantList.appendChild(createRestaurantCard(restaurant));
+  }
 }
 
-// EVENTS: category filter buttons
+// Select the cards after they have been created
+const restaurantItems = document.querySelectorAll(".restaurant-item");
+
+let selectedCategory = "all";
+let searchText = "";
+
+// FUNCTION 3: shows only the cards that match both the category and the search text
+function updateVisibleRestaurants() {
+  let shown = 0;
+
+  for (const item of restaurantItems) {
+    const matchesCategory = selectedCategory === "all" || item.dataset.category === selectedCategory;
+    const matchesSearch = item.dataset.search.includes(searchText);
+
+    if (matchesCategory && matchesSearch) {
+      item.classList.remove("d-none");
+      shown++;
+    } else {
+      item.classList.add("d-none");
+    }
+  }
+
+  if (summary) {
+    summary.textContent = `${shown} ${shown === 1 ? "restaurant" : "restaurants"} shown.`;
+  }
+  if (noResults) {
+    noResults.classList.toggle("d-none", shown > 0);
+  }
+
+  return shown;
+}
+
+updateVisibleRestaurants();
+
+// EVENTS: category filter buttons 
 const filterButtons = document.querySelectorAll(".filter-button");
+
 for (const button of filterButtons) {
   button.addEventListener("click", function () {
-    const shown = filterRestaurants(button.dataset.filter, featuredItems);
+    selectedCategory = button.dataset.filter;
 
     for (const other of filterButtons) {
       other.classList.remove("active");
     }
     button.classList.add("active");
 
-    featuredSummary.textContent = `${shown} featured restaurants shown.`;
+    updateVisibleRestaurants();
   });
 }
-// BOOTSTRAP MODAL: fill it with the clicked restaurant's data
+
+// BOOTSTRAP MODAL: i filled it with the clicked restaurant's data
 const detailButtons = document.querySelectorAll(".view-restaurant");
 
 for (const button of detailButtons) {
@@ -128,5 +152,17 @@ for (const button of detailButtons) {
     document.querySelector("#modal-rating").textContent = `Rating: ${restaurant.rating} out of 5`;
     document.querySelector("#modal-status").textContent = getStatusMessage(restaurant.open);
     document.querySelector("#reserve-link").href = `reserve.html?restaurant=${restaurant.id}`;
+  });
+}
+
+// jQUERY: live search and clear button
+if (window.jQuery) {
+  $("#search").on("input", function () {
+    searchText = $(this).val().trim().toLowerCase();
+    updateVisibleRestaurants();
+  });
+
+  $("#clear-search").on("click", function () {
+    $("#search").val("").trigger("input").trigger("focus");
   });
 }
