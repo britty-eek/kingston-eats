@@ -168,3 +168,10 @@ main:focus {
   background-color: rgba(31, 27, 23, 0.75);
   padding: 0.5rem 1rem;
 }
+
+/*restaurant images css */
+.restaurant-photo {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+}
