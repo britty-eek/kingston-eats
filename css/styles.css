@@ -346,3 +346,20 @@ main:focus {
   .featured-text { padding: 3rem 4rem; }
   .featured-photo { min-height: 26rem; }
 }
+
+/*Restaurants banner*/
+.page-banner {
+  height: 45vh;
+  min-height: 18rem;
+}
+
+.page-banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-banner .hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
