@@ -154,7 +154,7 @@ h1, h2, h3, .brand {
     transform: translateX(-50%);
   }
 
-  .site-logo { height: 6.5rem; }
+.brand-badge .site-logo { height: 6.5rem; }
 
   .site-nav { height: 100%; padding-inline: 1.5rem; }
 
@@ -185,14 +185,6 @@ h1, h2, h3, .brand {
   border-bottom: 2px solid var(--gold);
 }
 
-/* Photo strip: equal crops so mismatched photos still line up */
-.photo-strip img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background-color: var(--surface);
-}
 /* Small spaced-out section labels, like ABOUT and RESERVATIONS on the reference */
 .section-title {
   margin-bottom: 1.5rem;
@@ -323,17 +315,6 @@ main:focus {
   border-radius: 50%;
   clip-path: circle(46%);
 }
-/*Carousel css*/
-.carousel-item img {
-  aspect-ratio: 16 / 9;
-  max-height: 30rem;
-  object-fit: cover;
-}
-
-.carousel-caption {
-  background-color: rgba(31, 27, 23, 0.75);
-  padding: 0.5rem 1rem;
-}
 
 /*restaurant images css */
 .restaurant-photo {
@@ -420,4 +401,16 @@ main:focus {
   aspect-ratio: 21 / 9;
   max-height: 26rem;
   object-fit: cover;
+}
+
+/*Reserve page spacing*/
+.info-row {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.size-list dt {
+  font-family: Georgia, "Times New Roman", Garamond, serif;
+  font-size: 1.15rem;
+  font-weight: 400;
 }
