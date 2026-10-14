@@ -389,6 +389,8 @@ main:focus {
   font-size: 1.1rem;
 }
 
+.alert { border-radius: 0; }
+
 @media (min-width: 62rem) {
   .featured-text { padding: 3rem 4rem; }
   .featured-photo { min-height: 26rem; }
@@ -409,4 +411,13 @@ main:focus {
 
 .page-banner .hero-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+/*Reserve banner*/
+.page-hero-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  max-height: 26rem;
+  object-fit: cover;
 }

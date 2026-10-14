@@ -96,11 +96,15 @@
           <p>Complete the form and we will send your request to the restaurant.</p>
         </div>
         <div class="col-lg-9">
+          <div id="confirmation" class="alert alert-success d-none" role="status" tabindex="-1">
+          <h3 class="h5">Request sent</h3>
+          <p id="confirmation-message" class="mb-0"></p>
+          </div>
           <form id="reservation-form" novalidate>
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input id="name" class="form-control" type="text">
-              <div class="invalid-feedback">Please enter your name.</div>
+             <div class="invalid-feedback">Please enter your name (at least 2 characters).</div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>

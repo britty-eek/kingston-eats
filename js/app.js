@@ -215,3 +215,108 @@ if (window.jQuery) {
     $("#search").val("").trigger("input").trigger("focus");
   });
 }
+
+// RESERVATION FORM (reserve.html)
+function getTodayString() {
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${today.getFullYear()}-${month}-${day}`;
+}
+
+// Basic email check: an @ that is not first, a dot after it with text between,
+// text after the last dot, and no spaces
+function isValidEmail(email) {
+  const atIndex = email.indexOf("@");
+  const dotIndex = email.lastIndexOf(".");
+  return atIndex > 0 &&
+         dotIndex > atIndex + 1 &&
+         dotIndex < email.length - 1 &&
+         !email.includes(" ");
+}
+
+function setFieldState(input, isValid) {
+  input.classList.toggle("is-invalid", !isValid);
+  input.classList.toggle("is-valid", isValid);
+}
+
+const reservationForm = document.querySelector("#reservation-form");
+
+if (reservationForm) {
+  const nameInput = document.querySelector("#name");
+  const emailInput = document.querySelector("#email");
+  const restaurantSelect = document.querySelector("#restaurant");
+  const dateInput = document.querySelector("#date");
+  const guestsInput = document.querySelector("#guests");
+  const requestsInput = document.querySelector("#requests");
+  const formStatus = document.querySelector("#form-status");
+  const confirmation = document.querySelector("#confirmation");
+  const confirmationMessage = document.querySelector("#confirmation-message");
+  const allFields = [nameInput, emailInput, restaurantSelect, dateInput, guestsInput];
+
+  for (const restaurant of restaurants) {
+    const option = document.createElement("option");
+    option.value = restaurant.id;
+    option.textContent = `${restaurant.name} (${restaurant.area})`;
+    restaurantSelect.appendChild(option);
+  }
+
+  const query = new URLSearchParams(window.location.search);
+  const chosenId = query.get("restaurant");
+  if (chosenId) {
+    restaurantSelect.value = chosenId;
+  }
+
+  dateInput.min = getTodayString();
+
+  reservationForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    confirmation.classList.add("d-none");
+
+    const guests = Number(guestsInput.value);
+    const checks = [
+      { input: nameInput, ok: nameInput.value.trim().length >= 2 },
+      { input: emailInput, ok: isValidEmail(emailInput.value.trim()) },
+      { input: restaurantSelect, ok: restaurantSelect.value !== "" },
+      { input: dateInput, ok: dateInput.value !== "" && dateInput.value >= getTodayString() },
+      { input: guestsInput, ok: Number.isInteger(guests) && guests >= 1 && guests <= 12 }
+    ];
+
+    let firstInvalid = null;
+    for (const check of checks) {
+      setFieldState(check.input, check.ok);
+      if (!check.ok && firstInvalid === null) {
+        firstInvalid = check.input;
+      }
+    }
+
+    if (firstInvalid !== null) {
+      formStatus.textContent = "Please fix the highlighted fields and try again.";
+      firstInvalid.focus();
+      return;
+    }
+
+    formStatus.textContent = "";
+
+    const restaurant = restaurants.find(function (r) {
+      return r.id === Number(restaurantSelect.value);
+    });
+
+    let message = `Thank you, ${nameInput.value.trim()}. Your request for ${guests} ${guests === 1 ? "guest" : "guests"} at ${restaurant.name} on ${dateInput.value} has been sent.`;
+    if (requestsInput.value.trim() !== "") {
+      message += " We noted your special request.";
+    }
+
+    confirmationMessage.textContent = message;
+    confirmation.classList.remove("d-none");
+    confirmation.focus();
+
+    document.querySelector("#toast-message").textContent = "Your reservation request has been sent.";
+    bootstrap.Toast.getOrCreateInstance(document.querySelector("#reservation-toast")).show();
+
+    reservationForm.reset();
+    for (const field of allFields) {
+      field.classList.remove("is-valid", "is-invalid");
+    }
+  });
+}
