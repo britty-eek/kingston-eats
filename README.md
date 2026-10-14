@@ -11,3 +11,12 @@ Kingston-Eats is a food discovery website featuring restaurants or vendors, cate
 - The Home page (index.html) is used for photos, introduction, about text, featured restaurants with filters and details.
 - The Restaurants page (restaurants.html) is used for the full list of all the restaurants connected to Kingston Eats.
 - The Reserve page (reserve.html) is used for the reservation form for people making a reservation online.
+
+- ## Technologies
+HTML5, CSS3, Bootstrap 5.3.8, JavaScript and jQuery 4.0.0.
+
+## Bootstrap components used
+Responsive navbar, containers and grid, cards, buttons, form controls, spacing and responsive utilities, plus four Bootstrap JavaScript components: Collapse (mobile menu and contact card), Modal (restaurant details), Carousel (home page slideshow) and Toast (reservation confirmation).
+
+## AI use disclosure
+I used Claude for planning, explaining concepts, and debugging help. I wrote, reviewed, tested and edited the code and can explain how it works.
