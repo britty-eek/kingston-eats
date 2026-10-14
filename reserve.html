@@ -11,6 +11,52 @@
 <body>
   <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
 
-  <div class="top-banner text-center py-2">
-    <p class="mb-0">Discover Kingston's best tables &middot; <a href="reserve.html">Request a table today</a></p>
-  </div>
+ <header class="site-header">
+    <a class="brand-badge" href="index.html">
+      <img class="site-logo" src="images/KingsEats.jpg" alt="Kingston Eats home">
+    </a>
+    <nav class="navbar navbar-expand-lg site-nav justify-content-center" aria-label="Primary">
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav nav-left">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="restaurants.html">Restaurants</a></li>
+        </ul>
+        <ul class="navbar-nav nav-right">
+          <li class="nav-item"><a class="btn btn-primary nav-reserve" aria-current="page" href="reserve.html">Reserve a table</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+   <main id="main-content" tabindex="-1">
+    <img class="page-hero-img" src="images/reserve banner.jpg" alt="Image of a Restaurant Table">
+
+    <section class="container text-center py-5">
+      <h1 class="display-5">Reserve a table in Kingston</h1>
+      <p class="lead col-lg-8 mx-auto">Pick a restaurant, a date and your group size, then send us a request.</p>
+      <a class="btn btn-primary" href="#request-form">Request a table</a>
+    </section>
+
+    <section class="container" aria-labelledby="overview-title">
+      <div class="row info-row">
+        <div class="col-lg-3"><h2 id="overview-title" class="section-title">Overview</h2></div>
+        <div class="col-lg-9">
+          <p>Kingston Eats helps you secure a table at the city's best jerk pits, international kitchens and seafood spots. Send a request and the restaurant will follow up with you.</p>
+          <p>Whether it is a family lunch, a birthday dinner or a catch-up with friends, tell us when you would like to go and how many people are coming.</p>
+        </div>
+      </div>
+    </section>
+<!-- Details section about reservations-->
+    <section class="container" aria-labelledby="details-title">
+      <div class="row info-row">
+        <div class="col-lg-3"><h2 id="details-title" class="section-title">Details</h2></div>
+        <div class="col-lg-9">
+          <p>This is a request, not a confirmed booking. Each restaurant decides whether it can offer your date and time.</p>
+        </div>
+      </div>
+    </section>
