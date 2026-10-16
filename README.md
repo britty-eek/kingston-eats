@@ -19,4 +19,4 @@ HTML5, CSS3, Bootstrap 5.3.8, JavaScript and jQuery 4.0.0.
 Responsive navbar, containers and grid, cards, buttons, form controls, spacing and responsive utilities, plus four Bootstrap JavaScript components: Collapse (mobile menu and contact card), Modal (restaurant details), Carousel (home page slideshow) and Toast (reservation confirmation).
 
 ## AI use disclosure
-I used Claude for planning, explaining concepts, and debugging help. I wrote, reviewed, tested and edited the code and can explain how it works.
+I used Claude for explaining concepts and debugging help. I wrote, reviewed, tested, and edited the code and can explain how it works.
